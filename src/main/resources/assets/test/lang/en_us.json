@@ -1,0 +1,9 @@
+{
+  "tooltip.test.tanktier": "Tier: %d, Capacity: %d",
+  "tooltip.test.fluidamount": "%s: %d",
+
+  "fluid.test.liquid": "Liquid",
+  "item.test.liquid_bucket": "Bucket of Liquid",
+
+  "block.test.solid": "Solid Tank"
+}
