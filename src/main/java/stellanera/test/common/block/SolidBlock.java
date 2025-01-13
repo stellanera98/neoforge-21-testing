@@ -3,7 +3,6 @@ package stellanera.test.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -17,13 +16,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidUtil;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import stellanera.test.common.datacomponent.ModComponents;
-import stellanera.test.common.datacomponent.RecordFluidStack;
 import stellanera.test.common.tile.ModTiles;
 import stellanera.test.common.tile.SolidTile;
 
@@ -47,6 +43,7 @@ public class SolidBlock extends Block implements EntityBlock {
         return new SolidTile(pos, state, tier);
     }
 
+    /*
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
@@ -62,6 +59,7 @@ public class SolidBlock extends Block implements EntityBlock {
         }
         tile.setContents(rfs.stack());
     }
+     */
 
     @Override
     protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {

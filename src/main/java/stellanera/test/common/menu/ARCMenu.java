@@ -1,5 +1,6 @@
 package stellanera.test.common.menu;
 
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -12,9 +13,11 @@ import stellanera.test.common.tile.ARCTile;
 
 public class ARCMenu extends AbstractContainerMenu {
 
+    public ARCTile tile;
     public ARCMenu(int containerId, Inventory playerInventory, ARCTile tile) {
         super(ModMenus.ARC.get(), containerId);
 
+        this.tile = tile;
         this.addSlot(new SlotItemHandler(ARCTile.getItemHandler(tile, null), ARCTile.TOOL_SLOT, 35, 51));
         this.addSlot(new SlotItemHandler(ARCTile.getItemHandler(tile, null), ARCTile.INPUT_BUCKET_SLOT, 8, 15));
         this.addSlot(new SlotItemHandler(ARCTile.getItemHandler(tile, null), ARCTile.OUTPUT_BUCKET_SLOT, 152, 87));
@@ -25,6 +28,12 @@ public class ARCMenu extends AbstractContainerMenu {
                 @Override
                 public boolean mayPlace(ItemStack stack) {
                     return false;
+                }
+
+                @Override
+                public void onTake(Player player, ItemStack stack) {
+                    stack.onCraftedBy(player.level(), player, stack.getCount());
+                    super.onTake(player, stack);
                 }
             });
         }
@@ -42,25 +51,45 @@ public class ARCMenu extends AbstractContainerMenu {
         }
     }
 
-    public ARCMenu(int containerId, Inventory playerInventory) {
-        this(containerId, playerInventory, null);
+    public ARCMenu(int containerId, Inventory playerInventory, FriendlyByteBuf buf) {
+        this(containerId, playerInventory, (ARCTile) playerInventory.player.level().getBlockEntity(buf.readBlockPos()));
     }
 
     private int playerInvStart = 9;
-    private int playerInvEnd = playerInvStart + 30;
+    private int playerInvEnd = playerInvStart + 27;
     private int hotbarStart = playerInvEnd + 1;
-    private int hotbarEnd = hotbarStart + 9;
+    private int hotbarEnd = hotbarStart + 8;
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
         ItemStack movedStack = ItemStack.EMPTY;
         Slot movedSlot = this.slots.get(index);
 
-        if (movedSlot != null && movedSlot.hasItem()) {
+        if (movedSlot.hasItem()) {
             ItemStack rawStack = movedSlot.getItem();
             movedStack = rawStack.copy();
 
-            if (index >= ARCTile.OUTPUT_SLOT && index <= ARCTile.OUTPUT_SLOT + ARCTile.NUM_OUTPUTS) {
-                if (!this.moveItemStackTo(rawStack, 8, 8+30+9, true));
+            if (index >= ARCTile.OUTPUT_SLOT && index < playerInvStart) {
+                if (!this.moveItemStackTo(rawStack, playerInvStart, hotbarEnd, false)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (index < playerInvStart) {
+                if (!this.moveItemStackTo(rawStack, playerInvStart, hotbarEnd, false)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (index >= playerInvStart) {
+                if (!this.moveItemStackTo(rawStack, 0, playerInvStart, false)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (rawStack.isEmpty()) {
+                movedSlot.set(ItemStack.EMPTY);
+            } else {
+                movedSlot.setChanged();
             }
         }
 

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "test:block/arc_bottom",
+    "front": "test:block/arc_front_v",
+    "side": "test:block/arc_side_v",
+    "top": "test:block/arc_top_v"
+  }
+}

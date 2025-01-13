@@ -1,0 +1,12 @@
+// 1.21.1	2024-08-23T02:01:31.022826	Block States: test
+d79483c439eec2c185dc250c69d84f6b54d3fb08 assets/test/blockstates/arc.json
+0009f8988a4bf489d6c6f6710757eff865d3330a assets/test/models/block/arc.json
+feabf40f5cf1f3df46898f721ad06078fc772b3c assets/test/models/block/arc_c.json
+85e7427f321aaee2ac0f371deda3972d3ba41097 assets/test/models/block/arc_c_lit.json
+190d3ab860e859639ba57b0d22bc735a75e76852 assets/test/models/block/arc_d.json
+32b964a53c9a31ad33bc9876e99dc6d0f6342d01 assets/test/models/block/arc_d_lit.json
+a5273a24d0ea675cbfa32fd0fb67cc5b5870af64 assets/test/models/block/arc_lit.json
+60ead62ffb4733d740d6235f8123737307fcc7a1 assets/test/models/block/arc_s.json
+96cee9400c276e186472efcd35836ee17ee1def0 assets/test/models/block/arc_s_lit.json
+382dfd86a49b68c962b765cd874c683feea44e00 assets/test/models/block/arc_v.json
+583b7758642d9483908dd8b5d0854f2eeaadd2bc assets/test/models/block/arc_v_lit.json

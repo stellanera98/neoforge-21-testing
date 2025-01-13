@@ -2,15 +2,18 @@ package stellanera.test.common.tile;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.fluids.SimpleFluidContent;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import stellanera.test.Modname;
+import stellanera.test.common.datacomponent.ModComponents;
 
 public class SolidTile extends BlockEntity {
     private int counter = 0;
@@ -81,7 +84,38 @@ public class SolidTile extends BlockEntity {
             return;
         }
         if (tile.counter % 20 == 0) {
-            Modname.LOGGER.debug("Has: {}:{}", tile.tank.getFluid().getFluidHolder(), tile.tank.getFluidAmount());
+            Modname.LOGGER.debug("Has: {}:{}/{}", tile.tank.getFluid().getHoverName(), tile.tank.getFluidAmount(), tile.tank.getCapacity());
         }
+    }
+
+    @Override
+    protected void applyImplicitComponents(DataComponentInput componentInput) {
+        Modname.LOGGER.debug("called apply implicit component");
+        // called when placing block down
+        super.applyImplicitComponents(componentInput);
+        this.tier = componentInput.getOrDefault(ModComponents.TIER, 0);
+        this.tank.setCapacity(getCapacityForTier(this.tier));
+        SimpleFluidContent rfs = componentInput.getOrDefault(ModComponents.FLUID_CONTENT, SimpleFluidContent.EMPTY);
+        FluidStack stack = rfs.copy();
+        this.tank.setFluid(stack);
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder components) {
+        Modname.LOGGER.debug("called collect implicit component");
+        // called when ctrl+mmb picking block, after removeComponentsFromTag
+        // called when breaking in survival, removeComponentsFromTag not called
+        super.collectImplicitComponents(components);
+        components.set(ModComponents.TIER, this.tier);
+        components.set(ModComponents.FLUID_CONTENT, SimpleFluidContent.copyOf(this.tank.getFluid()));
+    }
+
+    @Override
+    public void removeComponentsFromTag(CompoundTag tag) {
+        Modname.LOGGER.debug("called remove components");
+        // called when ctrl+mmb picking block, before collectImplicitComponents
+        super.removeComponentsFromTag(tag);
+        tag.remove("Fluid");
+        Modname.LOGGER.debug(tag.toString());
     }
 }

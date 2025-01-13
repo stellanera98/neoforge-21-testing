@@ -5,10 +5,12 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import stellanera.test.Modname;
 import stellanera.test.common.block.ModBlocks;
+import stellanera.test.common.datacomponent.ModComponents;
 
 public class ModTiles {
     public static final DeferredRegister<BlockEntityType<?>> TILES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Modname.MODID);
@@ -23,5 +25,14 @@ public class ModTiles {
 
     private static void registerCaps(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, SOLID_TYPE.get(), (tile, side) -> SolidTile.getHandler(tile));
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ARC_TYPE.get(), ARCTile::getFluidHandler);
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ARC_TYPE.get(), ARCTile::getItemHandler);
+
+        event.registerItem(Capabilities.FluidHandler.ITEM, (itemStack, context) ->
+                new FluidHandlerItemStack(
+                        ModComponents.FLUID_CONTENT,
+                        itemStack,
+                        SolidTile.getCapacityForTier(itemStack.getOrDefault(ModComponents.TIER, 0))
+                ), ModBlocks.TANK_ITEM.get());
     }
 }

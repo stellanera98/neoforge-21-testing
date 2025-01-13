@@ -1,0 +1,154 @@
+{
+  "variants": {
+    "facing=east,lit=false,type=corrosive": {
+      "model": "test:block/arc_c",
+      "y": 270
+    },
+    "facing=east,lit=false,type=default": {
+      "model": "test:block/arc",
+      "y": 270
+    },
+    "facing=east,lit=false,type=destructive": {
+      "model": "test:block/arc_d",
+      "y": 270
+    },
+    "facing=east,lit=false,type=steadfast": {
+      "model": "test:block/arc_s",
+      "y": 270
+    },
+    "facing=east,lit=false,type=vengeful": {
+      "model": "test:block/arc_v",
+      "y": 270
+    },
+    "facing=east,lit=true,type=corrosive": {
+      "model": "test:block/arc_c_lit",
+      "y": 270
+    },
+    "facing=east,lit=true,type=default": {
+      "model": "test:block/arc_lit",
+      "y": 270
+    },
+    "facing=east,lit=true,type=destructive": {
+      "model": "test:block/arc_d_lit",
+      "y": 270
+    },
+    "facing=east,lit=true,type=steadfast": {
+      "model": "test:block/arc_s_lit",
+      "y": 270
+    },
+    "facing=east,lit=true,type=vengeful": {
+      "model": "test:block/arc_v_lit",
+      "y": 270
+    },
+    "facing=north,lit=false,type=corrosive": {
+      "model": "test:block/arc_c",
+      "y": 180
+    },
+    "facing=north,lit=false,type=default": {
+      "model": "test:block/arc",
+      "y": 180
+    },
+    "facing=north,lit=false,type=destructive": {
+      "model": "test:block/arc_d",
+      "y": 180
+    },
+    "facing=north,lit=false,type=steadfast": {
+      "model": "test:block/arc_s",
+      "y": 180
+    },
+    "facing=north,lit=false,type=vengeful": {
+      "model": "test:block/arc_v",
+      "y": 180
+    },
+    "facing=north,lit=true,type=corrosive": {
+      "model": "test:block/arc_c_lit",
+      "y": 180
+    },
+    "facing=north,lit=true,type=default": {
+      "model": "test:block/arc_lit",
+      "y": 180
+    },
+    "facing=north,lit=true,type=destructive": {
+      "model": "test:block/arc_d_lit",
+      "y": 180
+    },
+    "facing=north,lit=true,type=steadfast": {
+      "model": "test:block/arc_s_lit",
+      "y": 180
+    },
+    "facing=north,lit=true,type=vengeful": {
+      "model": "test:block/arc_v_lit",
+      "y": 180
+    },
+    "facing=south,lit=false,type=corrosive": {
+      "model": "test:block/arc_c"
+    },
+    "facing=south,lit=false,type=default": {
+      "model": "test:block/arc"
+    },
+    "facing=south,lit=false,type=destructive": {
+      "model": "test:block/arc_d"
+    },
+    "facing=south,lit=false,type=steadfast": {
+      "model": "test:block/arc_s"
+    },
+    "facing=south,lit=false,type=vengeful": {
+      "model": "test:block/arc_v"
+    },
+    "facing=south,lit=true,type=corrosive": {
+      "model": "test:block/arc_c_lit"
+    },
+    "facing=south,lit=true,type=default": {
+      "model": "test:block/arc_lit"
+    },
+    "facing=south,lit=true,type=destructive": {
+      "model": "test:block/arc_d_lit"
+    },
+    "facing=south,lit=true,type=steadfast": {
+      "model": "test:block/arc_s_lit"
+    },
+    "facing=south,lit=true,type=vengeful": {
+      "model": "test:block/arc_v_lit"
+    },
+    "facing=west,lit=false,type=corrosive": {
+      "model": "test:block/arc_c",
+      "y": 90
+    },
+    "facing=west,lit=false,type=default": {
+      "model": "test:block/arc",
+      "y": 90
+    },
+    "facing=west,lit=false,type=destructive": {
+      "model": "test:block/arc_d",
+      "y": 90
+    },
+    "facing=west,lit=false,type=steadfast": {
+      "model": "test:block/arc_s",
+      "y": 90
+    },
+    "facing=west,lit=false,type=vengeful": {
+      "model": "test:block/arc_v",
+      "y": 90
+    },
+    "facing=west,lit=true,type=corrosive": {
+      "model": "test:block/arc_c_lit",
+      "y": 90
+    },
+    "facing=west,lit=true,type=default": {
+      "model": "test:block/arc_lit",
+      "y": 90
+    },
+    "facing=west,lit=true,type=destructive": {
+      "model": "test:block/arc_d_lit",
+      "y": 90
+    },
+    "facing=west,lit=true,type=steadfast": {
+      "model": "test:block/arc_s_lit",
+      "y": 90
+    },
+    "facing=west,lit=true,type=vengeful": {
+      "model": "test:block/arc_v_lit",
+      "y": 90
+    }
+  }
+}

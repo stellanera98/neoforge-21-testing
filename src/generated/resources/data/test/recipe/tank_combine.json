@@ -1,0 +1,25 @@
+{
+  "type": "test:crafting_special_tiered",
+  "key": {
+    "d": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "g": {
+      "item": "minecraft:polished_granite"
+    },
+    "t": {
+      "item": "test:tank_item"
+    }
+  },
+  "pattern": [
+    "dgd",
+    "t t",
+    "ddd"
+  ],
+  "primary": 3,
+  "result": {
+    "count": 1,
+    "id": "test:tank_item"
+  },
+  "secondary": 5
+}

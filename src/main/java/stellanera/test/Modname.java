@@ -15,7 +15,6 @@ import stellanera.test.common.item.ModItems;
 import stellanera.test.common.fluid.ModFluids;
 import stellanera.test.common.menu.ModMenus;
 import stellanera.test.common.recipe.ModRecipes;
-import stellanera.test.common.tile.SolidTile;
 import stellanera.test.common.tile.ModTiles;
 
 
@@ -33,7 +32,6 @@ public class Modname {
         ModRecipes.register(modbus);
         ModMenus.register(modbus);
     }
-
     public static ResourceLocation rl(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }

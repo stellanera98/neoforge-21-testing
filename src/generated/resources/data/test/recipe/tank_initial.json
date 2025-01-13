@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "g": {
+      "item": "minecraft:polished_granite"
+    },
+    "t": {
+      "tag": "c:glass_blocks"
+    }
+  },
+  "pattern": [
+    "dgd",
+    "t t",
+    "ddd"
+  ],
+  "result": {
+    "count": 1,
+    "id": "test:tank_item"
+  }
+}
